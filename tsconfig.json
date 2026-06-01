@@ -5,6 +5,12 @@
     // "rootDir": "./src",
     // "outDir": "./dist",
 
+    // Paths
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
@@ -40,6 +46,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
