@@ -1,5 +1,5 @@
 import { UsersRepository } from "@/repositories/users.repositories";
-import { ListUsersUseCase } from "@/use-cases/users/list-users.usecase";
+import { ListUsersUseCase } from "@/use-cases/users/list-users/list-users.usecase";
 import type { FastifyReply, FastifyRequest } from "fastify";
 
 export async function list(request: FastifyRequest, reply: FastifyReply) {
