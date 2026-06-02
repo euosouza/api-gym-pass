@@ -27,8 +27,8 @@ API REST no estilo GymPass para gerenciamento de academias e check-ins de usuár
 - [x] Deve ser possível buscar um usuário pelo ID;
 - [x] Deve ser possível atualizar um usuário;
 - [x] Deve ser possível deletar um usuário;
-- [ ] Deve ser possível se autenticar;
-- [ ] Deve ser possível obter o perfil de um usuário logado;
+- [x] Deve ser possível se autenticar;
+- [x] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado;
 - [ ] Deve ser possível o usuário obter o seu histórico de check-ins;
 - [ ] Deve ser possível o usuário buscar academias próximas (até 10km);
