@@ -11,7 +11,11 @@
     "lint:fix": "eslint src --fix",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
@@ -28,6 +32,8 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^25.9.1",
     "@types/pg": "^8.20.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/ui": "^4.1.8",
     "dotenv": "^17.4.2",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
@@ -39,7 +45,9 @@
     "tsup": "^8.5.1",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.34.0"
+    "typescript-eslint": "^8.34.0",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.8"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",

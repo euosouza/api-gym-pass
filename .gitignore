@@ -8,3 +8,5 @@ dist
 /generated/prisma
 
 /generated/prisma
+
+coverage

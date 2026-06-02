@@ -1,6 +1,6 @@
 import type { IUsersRepository } from "@/repositories/users.interface.repository";
 import { hash } from "bcryptjs";
-import { UserAlreadyExistsError } from "./erros/user-already-exists";
+import { UserAlreadyExistsError } from "../erros/user-already-exists";
 
 type RegisterUserUseCaseRequest = {
   name: string;
@@ -20,10 +20,14 @@ export class RegisterUserUseCase {
 
     const password_hash = await hash(password, 6);
 
-    return await this.repository.create({
+    const user = await this.repository.create({
       name,
       email,
       password_hash,
     });
+
+    return {
+      user,
+    };
   }
 }

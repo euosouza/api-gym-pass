@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import type { Prisma, User } from "generated/prisma/browser";
-import type { IUsersRepository, UserUpdateInput } from "./users.interface.repository";
+import type { IUsersRepository } from "./users.interface.repository";
 
 export class UsersRepository implements IUsersRepository {
   async delete({ id }: { id: string }) {
@@ -10,7 +10,7 @@ export class UsersRepository implements IUsersRepository {
       },
     });
   }
-  async update({ id, name, email, password_hash }: UserUpdateInput): Promise<User> {
+  async update({ id, name, email, password_hash }: Prisma.UserUpdateInput): Promise<User> {
     return await prisma.user.update({
       where: { id: id as string },
       data: {
