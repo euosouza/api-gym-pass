@@ -1,5 +1,6 @@
 import { UsersRepository } from "@/repositories/users.repositories";
-import { GetByIDUseCase } from "@/use-cases/users/get-bt-id-user.usecase";
+import { GetByIDUseCase } from "@/use-cases/users/get-bt-id-user/get-bt-id-user.usecase";
+
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
