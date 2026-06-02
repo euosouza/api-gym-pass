@@ -1,5 +1,5 @@
 import { UsersRepository } from "@/repositories/users.repositories";
-import { DeleteUserUseCase } from "@/use-cases/users/delete-user.usecase";
+import { DeleteUserUseCase } from "@/use-cases/users/delete-user/delete-user.usecase";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
