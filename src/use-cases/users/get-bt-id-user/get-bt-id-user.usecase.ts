@@ -1,5 +1,5 @@
 import type { IUsersRepository } from "@/repositories/users.interface.repository";
-import { UserNotFoundError } from "./erros/user-not-found";
+import { UserNotFoundError } from "../erros/user-not-found";
 
 type GetByIDUseCaseRequest = {
   id: string;
