@@ -1,5 +1,5 @@
 import { UsersRepository } from "@/repositories/users.repositories";
-import { UsersUpdateUseCase } from "@/use-cases/users/update-user.usecase";
+import { UsersUpdateUseCase } from "@/use-cases/users/update-user/update-user.usecase";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 

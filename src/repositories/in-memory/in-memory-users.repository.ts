@@ -24,19 +24,21 @@ export class InMemoryUsersRepository implements IUsersRepository {
   }
 
   async update({ id, name, email, password_hash }: Prisma.UserUpdateInput): Promise<User> {
-    const userIndex = this.items.findIndex((user) => user.id === id);
+    const userId = id as string;
+    const userIndex = this.items.findIndex((user) => user.id === userId);
 
     if (userIndex === -1) {
       throw new Error("User not found");
     }
 
-    const user = this.items[userIndex];
+    const user = this.items[userIndex]!;
 
     this.items[userIndex] = {
-      ...user,
-      ...(name !== undefined && { name: name as string }),
-      ...(email !== undefined && { email: email as string }),
-      ...(password_hash !== undefined && { password_hash: password_hash as string }),
+      id: user.id,
+      created_at: user.created_at,
+      name: name !== undefined ? (name as string) : user.name,
+      email: email !== undefined ? (email as string) : user.email,
+      password_hash: password_hash !== undefined ? (password_hash as string) : user.password_hash,
     };
 
     return this.items[userIndex];
