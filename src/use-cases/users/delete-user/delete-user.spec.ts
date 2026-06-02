@@ -2,18 +2,16 @@ import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-user
 import type { IUsersRepository } from "@/repositories/users.interface.repository";
 import { beforeEach, describe, expect, test } from "vitest";
 import { UserNotFoundError } from "../erros/user-not-found";
-import { RegisterUserUseCase } from "../register-user/register-user.usecase";
 import { DeleteUserUseCase } from "./delete-user.usecase";
+import { hash } from "bcryptjs";
 
 describe("Delete User Use Case", () => {
   let usersRepository: IUsersRepository;
   let sut: DeleteUserUseCase;
-  let registerUserUseCase: RegisterUserUseCase;
 
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
     sut = new DeleteUserUseCase(usersRepository);
-    registerUserUseCase = new RegisterUserUseCase(usersRepository);
   });
 
   test("deve retornar erro 404 quando usuario não encontrado", async () => {
@@ -25,10 +23,10 @@ describe("Delete User Use Case", () => {
   });
 
   test("deve deletar usuario", async () => {
-    const { user } = await registerUserUseCase.execute({
+    const user = await usersRepository.create({
       name: "John Doe",
       email: "[EMAIL_ADDRESS]",
-      password: "123456",
+      password_hash: await hash("123456", 6),
     });
 
     await sut.execute({

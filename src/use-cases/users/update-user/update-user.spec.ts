@@ -3,18 +3,15 @@ import type { IUsersRepository } from "@/repositories/users.interface.repository
 import { hash } from "bcryptjs";
 import { beforeEach, describe, expect, test } from "vitest";
 import { UserNotFoundError } from "../erros/user-not-found";
-import { RegisterUserUseCase } from "../register-user/register-user.usecase";
 import { UsersUpdateUseCase } from "./update-user.usecase";
 
 describe("Updade User Use Case", () => {
   let usersRepository: IUsersRepository;
   let sut: UsersUpdateUseCase;
-  let registerUserUseCase: RegisterUserUseCase;
 
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
     sut = new UsersUpdateUseCase(usersRepository);
-    registerUserUseCase = new RegisterUserUseCase(usersRepository);
   });
 
   test("deve retornar erro 404 quando usuario não encontrado", async () => {
@@ -26,10 +23,10 @@ describe("Updade User Use Case", () => {
   });
 
   test("deve atualizar usuario", async () => {
-    const { user } = await registerUserUseCase.execute({
+    const user = await usersRepository.create({
       name: "John Doe",
       email: "[EMAIL_ADDRESS]",
-      password: "123456",
+      password_hash: await hash("123456", 6),
     });
 
     const userUpdated = {
