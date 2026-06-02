@@ -1,8 +1,8 @@
-import { remove } from "@/http/controllers/users/delete.users.controller";
-import { getById } from "@/http/controllers/users/get-by-id.users.controller";
-import { list } from "@/http/controllers/users/list.users.controller";
-import { register } from "@/http/controllers/users/register.users.controller";
-import { update } from "@/http/controllers/users/update.users.controller";
+import { remove } from "@/http/controllers/users/delete-user.controller";
+import { getById } from "@/http/controllers/users/get-by-id-user.controller";
+import { list } from "@/http/controllers/users/list-users.controller";
+import { register } from "@/http/controllers/users/register-user.controller";
+import { update } from "@/http/controllers/users/update-user.controller";
 import type { FastifyInstance } from "fastify";
 
 export async function userRoutes(app: FastifyInstance) {
